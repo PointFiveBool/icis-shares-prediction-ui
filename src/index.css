@@ -8,6 +8,55 @@ body {
   background-color: rgb(59, 59, 59);
 
 }
+img.top-left {
+  position: fixed;
+  top: -3%;
+  left: -3.5%;
+  width: 320px;
+}
+img.top-right {
+  position: fixed;
+  top: -3%;
+  left: 88.5%;
+  width: 320px;
+}
+img.bottom-left {
+  position: fixed;
+  top: 24%;
+  left: 90.5%;
+  width: 320px;
+}
+img.bottom-right {
+  position: fixed;
+  top: 22.2%;
+  left: -9%;
+  width: 320px;
+}
+img.top-left-r1 {
+  position: fixed;
+  top: -3%;
+  left: -3.5%;
+  width: 320px;
+}
+img.top-right-r1 {
+  position: fixed;
+  top: -3%;
+  left: 88.5%;
+  width: 320px;
+}
+img.bottom-left-r1 {
+  position: fixed;
+  top: 24%;
+  left: 90.5%;
+  width: 320px;
+}
+img.bottom-right-r1 {
+  position: fixed;
+  top: 22.2%;
+  left: -9%;
+  width: 320px;
+  rotate: 90deg;
+}
 div.back {
   top: 0%;
   height: 100%;

@@ -4,12 +4,14 @@ import { Controller, useForm, FormProvider  } from "react-hook-form";
 import { DatePicker, Button  } from 'antd';
 import Select from "react-select";
 import Loader from "./components/Loader";
+import Dis from "./Dis";
 
 
 const { RangePicker } = DatePicker;
 const { Option } = Select
 
 export default function SharesForms() {
+    
     const { handleSubmit, control, errors } = useForm();
     const [data, setResult] = useState({});
     const [wereSent, sendData] = useState(false);
@@ -24,6 +26,7 @@ export default function SharesForms() {
   return (
     <div className="moscow">
         <div className="detdom" >
+        <Dis />
                     {/* <button onClick={sendRequest}>Press me</button> */}
                     <form onSubmit={handleSubmit(onSubmit)} >
                     <div class="sirota" >
@@ -84,6 +87,7 @@ export default function SharesForms() {
                     <input type="submit"/>
                     </form>
                     <Loader show={wereSent} />
+
         </div>
     </div>
   );
