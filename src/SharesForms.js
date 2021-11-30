@@ -1,24 +1,58 @@
-//import axios from "axios";
+import axios from "axios";
 import React, {useState, /*useCallback*/} from "react";
 import { Controller, useForm, FormProvider  } from "react-hook-form";
+import  useQuery from "react-query";
 import { DatePicker, Button  } from 'antd';
 import Select from "react-select";
 import Loader from "./components/Loader";
 
+
+ // host/api/shares?shortName=AMZN&iterations=20&startTime=01112021&endTime=29112021
 
 const { RangePicker } = DatePicker;
 const { Option } = Select
 
 export default function SharesForms() {
     const { handleSubmit, control, errors } = useForm();
-    const [data, setResult] = useState({});
+    // const {data, status, isFetching, isError} = useQuery();
+    const [formData, setResult] = useState({});
     const [wereSent, sendData] = useState(false);
-    function onSubmit(data){
+    const prepareJSON = (formData) => {
+        const keys = Object.keys(formData);
+        return keys.reduce((acc, key) =>{
+            if (formData[key].value){
+                if(key === "CompanyName"){
+                    return {
+                        ...acc,
+                        shortName: formData[key].value
+                    }
+                }
+                if (key === "CountOfItterations"){
+                    return {
+                        ...acc,
+                        iterations: formData[key].value
+                    }
+                }
+            }
+            if (key === "RangePicker"){
+               const [startDate, endDate] =  formData[key].map(x => x.format('DD-MM-YYYY'))
+               return {
+                   ...acc,
+                   startDate,
+                   endDate
+               }
+            }
+        }, {})
+    }
+    async function onSubmit(data){
+           const preparedData = prepareJSON(data) 
+           console.log({ preparedData })
+           const response = await axios.post("/shares", data)
             return setResult(()=> {
                 if (Object.keys(data).length)
                 sendData(true);
                 console.log({data});
-                return data;
+                return preparedData;
             });
         }
   return (
