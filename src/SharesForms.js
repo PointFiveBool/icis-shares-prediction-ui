@@ -5,8 +5,8 @@ import  useQuery from "react-query";
 import { DatePicker, Button  } from 'antd';
 import Select from "react-select";
 import Loader from "./components/Loader";
-
-
+import prepareJSON from "./helpers/prepare";
+import { COMPANIES, ITERATIONS } from "./consts/values";
  // host/api/shares?shortName=AMZN&iterations=20&startTime=01112021&endTime=29112021
 
 const { RangePicker } = DatePicker;
@@ -17,33 +17,6 @@ export default function SharesForms() {
     // const {data, status, isFetching, isError} = useQuery();
     const [formData, setResult] = useState({});
     const [wereSent, sendData] = useState(false);
-    const prepareJSON = (formData) => {
-        const keys = Object.keys(formData);
-        return keys.reduce((acc, key) =>{
-            if (formData[key].value){
-                if(key === "CompanyName"){
-                    return {
-                        ...acc,
-                        shortName: formData[key].value
-                    }
-                }
-                if (key === "CountOfItterations"){
-                    return {
-                        ...acc,
-                        iterations: formData[key].value
-                    }
-                }
-            }
-            if (key === "RangePicker"){
-               const [startDate, endDate] =  formData[key].map(x => x.format('DD-MM-YYYY'))
-               return {
-                   ...acc,
-                   startDate,
-                   endDate
-               }
-            }
-        }, {})
-    }
     async function onSubmit(data){
            const preparedData = prepareJSON(data) 
            console.log({ preparedData })
@@ -75,11 +48,7 @@ export default function SharesForms() {
                         render={({ field }) => (
                         <Select placeholder="Company name"
                             {...field}
-                            options={[
-                            { value: "GOGL", label: "GOGL" },
-                            { value: "NTFL", label: "NTFL" },
-                            { value: "AMZN", label: "AMZN" }
-                            ]}
+                            options={COMPANIES}
                         />
                         )}
 
@@ -94,11 +63,7 @@ export default function SharesForms() {
                         render={({ field }) => (
                         <Select placeholder="Count of itterations"
                             {...field}
-                            options={[
-                            { value: "25", label: "25" },
-                            { value: "50", label: "50" },
-                            { value: "75", label: "75" }
-                            ]}
+                            options={ITERATIONS}
                         />
                         )}
                         control={control}
