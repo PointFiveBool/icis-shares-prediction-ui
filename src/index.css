@@ -8,14 +8,29 @@ body {
   background-color: rgb(59, 59, 59);
 
 }
-div.back {
+div.back-1 {
+  transition-duration: 0.15s;
   top: 0%;
   height: 100%;
   position: fixed;
   width: 100%;
   background-repeat: no-repeat;
   background-size: cover;
-  background-image: url(https://img4.goodfon.com/original/3840x2160/a/f0/tekstura-fon-abstraktnye-industriia-chasy-shesterionka-mekha.jpg);
+  /* background-image: url(https://img4.goodfon.com/original/3840x2160/a/f0/tekstura-fon-abstraktnye-industriia-chasy-shesterionka-mekha.jpg); */
+  background-color: black;
+  filter: blur(7px);
+  z-index: -1;
+}
+div.back-2 {
+  transition-duration: 0.15s;
+  top: 0%;
+  height: 100%;
+  position: fixed;
+  width: 100%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  /* background-image: url(https://img4.goodfon.com/original/3840x2160/a/f0/tekstura-fon-abstraktnye-industriia-chasy-shesterionka-mekha.jpg); */
+  background-color: gray;
   filter: blur(7px);
   z-index: -1;
 }
@@ -28,28 +43,65 @@ div.back {
   margin-top: 50%;
   margin-left: 50%;
 }
-h1  {
+h1 {
   padding-top: 10px;
   margin-bottom: 8px;
   color: white;
   text-shadow:0px 0px 6px rgb(0, 0, 0);
-
 }
-div.centered {
-  display: flex;
-  justify-content: center;
-
-}
-div.detdom {
+.daaaa {
   display: flex;
   justify-content: center;
   flex-direction: column;
 }
+.s1 {
+  top: 0%;
+  left: 0%;
+  margin: 3px;
+  width: 50px;
+  display: inline-block;
+  z-index: 3;
+}
+div.hidden {
+  display: none;
+}
+.sn {
+  top: 90px;
+  width: 50px;
+}
+.sn-hidden {
+  display: none;
+}
+.s1-hidden {
+  display: none;
+}
+.porvi {
+  position: absolute;
+  display: inline-block;
+  background-image: url('https://sun9-47.userapi.com/impg/zz9yrJcJFxcelyA-c5IFPwlIeKb6YJQo1kDRMA/aigpOnKZizM.jpg?size=800x687&quality=96&sign=94efab2a7d484a2a14e5c99e0ef3d144&type=album');
+  border-radius: 12px;
+  transition-duration: 0.15s;
+  width: 40%;
+  min-height: 650px;
+  z-index: 3;
+}
+.porvi-hidden {
+  display: none;
+}
+.porvi:hover {
+  cursor: pointer;
+  transition-duration: 0.15s;
+  border-radius: 20px;
+  scale: 1.05;
+}
+div.centered {
+  display: flex;
+  justify-content: center;
+}
 .DatePicker{
-  height: 37px;
   width: 300px;
-  margin-left: -100px;
   border-radius: 4px;
+  height: 37px;
 }
 div.sirota{
   display: inline-block;
@@ -57,6 +109,32 @@ div.sirota{
   height: 32px;
   width: 200px;
   box-shadow: 0px 0px 1px rgb(255, 255, 255)
+}
+.screen{
+  opacity: 1;
+  transition-duration: 1.5s;
+}
+.screen-hidden{
+  opacity: 0;
+  transition-duration: 1.5s;
+}
+div.detdom {
+  opacity: 1;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  filter: blur(0px);
+  transition-duration: 1.5s;
+}
+div.detdom-hidden {
+  opacity: 0;
+  filter: blur(12px);
+  transition-duration: 1.5s;
+}
+div.sirota1{
+  display: inline-block;
+  margin: 25px;
+  width: 300px;
 }
 img.gif {
   display: none;
@@ -78,10 +156,15 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+h1 {
+  text-align: center;
+}
 .moscow {
   display: flex;
-  justify-content: center
+  justify-content: center;
+  transition-duration: 0.15s;
 }
+
 button,
 input[type="submit"] {
   color: rgb(0, 0, 0);
@@ -97,15 +180,34 @@ input[type="submit"] {
   transition-duration: 0.15s;
 }
 
-button {
+/* button {
+  display: inline-block;
   border-radius: 4px;
   width: 288px;
   height: 38px;
+} */
+button{
+  position: absolute;
+  border: 2px solid white;
+  background: transparent;
+  font-family: 'Roboto', sans-serif;
+  color: white;
+  width: 250px;
+  height: 50px;
+  font-size: 2em;
+  border-radius: 5px;
+  opacity: .5;
+  top: 60vh;
+  bottom: 0px;
+  left: 0px;
+  right: 0px;
+  margin: auto;
+  transition: .3s;
 }
+
 
 input[type="submit"]:hover {
   border-color: rgb(123, 180, 255);
-  width: 1000px;
   transition-duration: 0.15s;
   cursor: pointer;
 }
