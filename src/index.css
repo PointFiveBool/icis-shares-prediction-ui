@@ -112,11 +112,11 @@ div.sirota{
 }
 .screen{
   opacity: 1;
-  transition-duration: 1.5s;
+  transition-duration: 1.2s;
 }
 .screen-hidden{
   opacity: 0;
-  transition-duration: 1.5s;
+  transition-duration: 1.2s;
 }
 div.detdom {
   opacity: 1;
@@ -124,12 +124,12 @@ div.detdom {
   justify-content: center;
   flex-direction: column;
   filter: blur(0px);
-  transition-duration: 1.5s;
+  transition-duration: 1.2s;
 }
 div.detdom-hidden {
   opacity: 0;
   filter: blur(12px);
-  transition-duration: 1.5s;
+  transition-duration: 1.2s;
 }
 div.sirota1{
   display: inline-block;
@@ -189,14 +189,13 @@ input[type="submit"] {
 button{
   position: absolute;
   border: 2px solid white;
-  background: transparent;
   font-family: 'Roboto', sans-serif;
-  color: white;
+  color: black;
+  background-color: white;
   width: 250px;
   height: 50px;
   font-size: 2em;
   border-radius: 5px;
-  opacity: .5;
   top: 60vh;
   bottom: 0px;
   left: 0px;
@@ -204,10 +203,90 @@ button{
   margin: auto;
   transition: .3s;
 }
-
+button:hover {
+  border-color: skyblue;
+  transition: .15s;
+  cursor: pointer;
+}
+.zero {
+  position: fixed;
+  top: -50%;
+  left: -50%;
+}
 
 input[type="submit"]:hover {
   border-color: rgb(123, 180, 255);
   transition-duration: 0.15s;
   cursor: pointer;
+}
+
+
+/*----------------------loader----------------------*/ 
+.bb::before, .bb::after, .bb {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.bb-img {
+  top: 180px;
+  position:sticky;
+  width: 1000px;
+  background-color: black;
+  background: url('https://srv2.imgonline.com.ua/result_img/imgonline-com-ua-Compressed-OLjkMYYFBL.jpg') no-repeat 50% / 100%;
+  height: 700px;
+  margin: auto;
+  color: #d6509a;
+  box-shadow: inset 0 0 0 1px rgba(209, 86, 193, 0.774);
+  transition-duration: .25s;
+}
+.bb {
+  top: 750px;
+  position:absolute;
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  color: #d6509a;
+  box-shadow: inset 0 0 0 1px rgba(209, 86, 193, 0.774);
+}
+.bb::before, .bb::after {
+  content: "";
+  z-index: -1;
+  margin: -5%;
+  box-shadow: inset 0 0 0 2px;
+  animation: clipMe 8s linear infinite;
+}
+.bb::before {
+  animation-delay: -4s;
+}
+@keyframes clipMe {
+  0%, 100% {
+    clip: rect(0px, 220px, 2px, 0px);
+  }
+  25% {
+    clip: rect(0px, 2px, 220px, 0px);
+  }
+  50% {
+    clip: rect(218px, 220px, 220px, 0px);
+  }
+  75% {
+    clip: rect(0px, 220px, 220px, 218px);
+  }
+}
+html,
+body {
+  height: 100%;
+}
+
+body {
+  position: relative;
+  background-color: #0f222b;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }

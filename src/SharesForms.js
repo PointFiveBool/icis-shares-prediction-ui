@@ -48,15 +48,24 @@ export default function SharesForms() {
         document.querySelector(".detdom-hidden").className = "detdom";
         document.querySelector(".screen").className="screen-hidden";
     }
+    function getimg () {
+        document.querySelector('.bb').className="bb-img";
+    }
   return (
     <div className="moscow">
+        <button className='zero' onClick={getimg}>meow</button>
         <div className='screen' >
             <p id='head1' class='header'>Прогноз акций</p>
                 <p id='head2' class='header'>Просто</p>
                 <p id='head3' class='header'>Точно</p>
                 <p id='head4' class='header'>Надёжно</p>
-                <p id='head5' class='header'>Чего ждёшь?</p>
-                <button onClick={show}>Начать</button>
+                <p id='head5' class='header'>Приятно</p>
+                <p id='head6' class='header'>Качественно</p>
+                <p id='head7' class='header'>Можно покушать</p>
+                <p id='head8' class='header'>Чего ждёшь?</p>
+                <p id='head9' class='header'>Массаж простаты))</p>
+                <p id='head10' class='header1'>+8 916 416-28-44</p>
+                <button onClick={show} >Let's go!!</button>
                 <div class='light x1'></div>
                 <div class='light x2'></div>
                 <div class='light x3'></div>
